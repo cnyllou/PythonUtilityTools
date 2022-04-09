@@ -19,3 +19,7 @@ Add `source /path/to/env-file` to your `~/.bashrc` file (or `~/.zshrc`).
 
 Change `ENV_FILE` to point at yours, the environment variable file **MUST contain only environment variables**,
 otherwise an edit or delete **WILL OVERWRITE everything**.
+
+## ctd
+
+Personal script for quickly navigating to one of my ctf directories
