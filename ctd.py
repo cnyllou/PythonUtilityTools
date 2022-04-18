@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.10
 """
 Script for switching to my ctf directories faster
 """

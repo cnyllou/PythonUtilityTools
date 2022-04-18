@@ -1,0 +1,25 @@
+# Overwriting regular profile command builder
+run_map:
+  burpsuite: kioclient exec /home/kali/.local/share/applications/install4j_tmnpg7-BurpSuiteCommunity.desktop
+
+# Paths to search the executables first
+paths:
+  - /usr/share
+  - /usr/bin
+  - /bin/
+  - /sbin
+
+# Configured profiles with launch options
+profiles:
+  all:
+    - name: firefox
+    - name: burpsuite
+      path: /usr/share/burpsuite
+    - name: terminator
+      opts: --new-tab --working-directory=/home/kali/ctf --maximise
+  minimal:
+    - name: terminator
+      opts: --new-tab --maximise
+  web:
+    - name: firefox
+    - name: burpsuite
