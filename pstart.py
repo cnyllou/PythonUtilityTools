@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Workflow Orchestrator
 
 Program for orchestrating what commands will be run in what profile. The
@@ -135,9 +136,7 @@ def run_launch_opts(cfg: Config, launch_opts: LaunchOpts, search_paths: list[Pat
 
         cmd = cmd or f"{full_path} {opts.opts}"
         print(f"> {cmd}")
-        ret = subprocess.call(shlex.split(cmd), stderr=subprocess.DEVNULL)
-        if ret == 1:
-            print(f"Command: `{cmd}` failed!")
+        subprocess.Popen(shlex.split(cmd), stderr=subprocess.DEVNULL)
 
 
 @global_config
