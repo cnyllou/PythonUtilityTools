@@ -7,6 +7,7 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 import pyautogui
+import pyperclip
 
 BASE_PATH = Path("/home/kali/ctf/")
 
@@ -15,6 +16,12 @@ def parse_args():
     parser = ArgumentParser(description="Automation script for quick navigation")
     parser.add_argument("root")
     parser.add_argument("sub", nargs="?", default="")
+    parser.add_argument(
+        "-s", "--show", action="store_true", default=False, help="Only show path"
+    )
+    parser.add_argument(
+        "-c", "--copy", action="store_true", default=False, help="Only copy path"
+    )
     return parser.parse_args()
 
 
@@ -67,8 +74,13 @@ def main():
     if not path:
         sys.exit(f"Did not find such root {args.root}, in directory: {args.sub}")
     print("Found:", path)
-    pyautogui.write(path)
-    pyautogui.press(["enter"])
+    if args.copy:
+        print("Path copied!")
+        pyperclip.copy(path)
+
+    if not args.copy and not args.show:
+        pyautogui.write(path)
+        pyautogui.press(["enter"])
 
 
 if __name__ == "__main__":
